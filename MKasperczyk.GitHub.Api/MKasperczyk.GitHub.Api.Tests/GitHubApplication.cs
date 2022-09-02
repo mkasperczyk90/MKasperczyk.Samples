@@ -1,0 +1,18 @@
+﻿using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.Extensions.Hosting;
+using Microsoft.VisualStudio.TestPlatform.TestHost;
+
+namespace MKasperczyk.GitHub.Api.Tests
+{
+    internal class GitHubApplication : WebApplicationFactory<Program>
+    {
+        protected override IHost CreateHost(IHostBuilder builder)
+        {
+            builder.ConfigureServices(services =>
+            {
+            });
+
+            return base.CreateHost(builder);
+        }
+    }
+}
