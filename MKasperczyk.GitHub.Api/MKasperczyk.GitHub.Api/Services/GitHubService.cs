@@ -18,6 +18,8 @@ namespace MKasperczyk.GitHub.Api.Services
 
         public async Task<IEnumerable<RepositoryInfo>> GetRepositoryInfosByOwnerAsync(string owner)
         {
+            if (string.IsNullOrEmpty(owner)) return Array.Empty<RepositoryInfo>().ToList();
+
             List<RepositoryInfo> repositories = new List<RepositoryInfo>();
 
             int pageNumber = 1;
@@ -36,6 +38,8 @@ namespace MKasperczyk.GitHub.Api.Services
         }
         public async Task<IEnumerable<RepositoryDetailInfo>> GetRepositoryDetailInfosByOwnerAsync(string owner)
         {
+            if (string.IsNullOrEmpty(owner)) return Array.Empty<RepositoryDetailInfo>().ToList();
+
             List<RepositoryDetailInfo> repositories = new List<RepositoryDetailInfo>();
 
             int pageNumber = 1;

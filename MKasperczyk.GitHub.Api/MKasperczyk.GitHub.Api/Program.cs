@@ -35,13 +35,15 @@ if (app.Environment.IsDevelopment())
 {
     app.MapGet("/", () => "Welcome!");
 }
-app.MapGet("/repository/{owner}", async ([FromServices] IGitHubStatsService statsService, [FromQuery] string owner) =>
+app.MapGet("/repository/{owner}", async ([FromServices] IGitHubStatsService statsService, [FromRoute] string owner) =>
 {
     return await statsService.GetRepositoryStatsByOwnerAsync(owner);
 });
-app.MapGet("/repositoryWithDetails/{owner}", async ([FromServices] IGitHubService gitHubService, [FromQuery] string owner) =>
+app.MapGet("/repositoryWithDetails/{owner}", async ([FromServices] IGitHubService gitHubService, [FromRoute] string owner) =>
 {
     return await gitHubService.GetRepositoryDetailInfosByOwnerAsync(owner);
 });
 
 app.Run();
+
+public partial class Program { }

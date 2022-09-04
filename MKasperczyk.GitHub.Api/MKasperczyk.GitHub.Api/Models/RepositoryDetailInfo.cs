@@ -1,40 +1,49 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace MKasperczyk.GitHub.Api.Models
 {
     public class RepositoryDetailInfo
     {
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public long Id { get; set; }
 
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string? Name { get; set; }
 
-        [JsonProperty("git_url")]
+        [JsonPropertyName("git_url")]
         public string? GitUrl { get; set; }
 
-        [JsonProperty("html_url")]
+        [JsonPropertyName("owner")]
+        public RepositoryDetailOwnerInfo? Owner { get; set; }
+
+        [JsonPropertyName("html_url")]
         public string? HtmlUrl { get; set; }
 
-        [JsonProperty("stargazers_count")]
+        [JsonPropertyName("stargazers_count")]
         public long StargazersCount { get; set; }
 
-        [JsonProperty("watchers_count")]
+        [JsonPropertyName("watchers_count")]
         public long WatchersCount { get; set; }
 
-        [JsonProperty("forks_count")]
+        [JsonPropertyName("forks_count")]
         public long ForksCount { get; set; }
 
-        [JsonProperty("size")]
+        [JsonPropertyName("size")]
         public long Size { get; set; }
 
-        [JsonProperty("created_at")]
+        [JsonPropertyName("created_at")]
         public DateTime CreatedAt { get; set; }
 
-        [JsonProperty("updated_at")]
+        [JsonPropertyName("updated_at")]
         public DateTime UpdatedAt { get; set; }
 
-        [JsonProperty("pushed_at")]
+        [JsonPropertyName("pushed_at")]
         public DateTime PushedAt { get; set; }
+    }
+
+    public class RepositoryDetailOwnerInfo 
+    {
+        [JsonPropertyName("avatar_url")]
+        public string? AvatarUrl { get; set; }
     }
 }

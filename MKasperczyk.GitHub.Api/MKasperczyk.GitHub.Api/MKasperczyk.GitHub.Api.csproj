@@ -13,6 +13,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.4.0" />
+    <PackageReference Include="xunit.assert" Version="2.4.2" />
+	<InternalsVisibleTo Include="MKasperczyk.GitHub.Api.Tests" />
+	<InternalsVisibleTo Include="MKasperczyk.GitHub.Api.IntegrationTests" />
   </ItemGroup>
 
 </Project>

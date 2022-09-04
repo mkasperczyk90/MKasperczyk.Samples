@@ -3,6 +3,8 @@ using MKasperczyk.GitHub.Api.Services;
 using Microsoft.Extensions.Options;
 using MKasperczyk.GitHub.Api.Options;
 using System.Net.Http.Headers;
+using Microsoft.Net.Http.Headers;
+using System.Net.Http;
 
 namespace MKasperczyk.GitHub.Api.Extensions
 {
@@ -22,7 +24,8 @@ namespace MKasperczyk.GitHub.Api.Extensions
             services.AddHttpClient<IGitHubService, GitHubService>(client =>
             {
                 client.BaseAddress = baseGitHubUrl;
-                client.DefaultRequestHeaders.Add("User-Agent", "Other");
+                client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/vnd.github.v3+json");
+                client.DefaultRequestHeaders.Add(HeaderNames.UserAgent, "Other");
             });
 
             return services;
